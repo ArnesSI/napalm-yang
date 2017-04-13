@@ -10,7 +10,7 @@ interfaces:
     interface:
         _process:
             mode: block
-            regexp: "(?P<block>interface (?P<key>(\\w|-)*\\d+)\n(?:.|\n)*?^!$)"
+            regexp: "(?P<block>^interface (?P<key>[^\\s\\.\n]+)(?:.|\n)*?)^\\S"
             from: "{{ bookmarks.interfaces.0 }}"
         name:
             _process: unnecessary
@@ -29,7 +29,7 @@ interfaces:
             type:
                 _process:
                     mode: map
-                    regexp: "(?P<value>(\\w|-)*)\\d+"
+                    regexp: "(?P<value>[^\\s\\.\n]+?)\\d.*"
                     from: "{{ interface_key }}"
                     map:
                         GigabitEthernet: ethernetCsmacd
