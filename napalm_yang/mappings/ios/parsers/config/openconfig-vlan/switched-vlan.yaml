@@ -1,6 +1,6 @@
 ---
 metadata:
-    parser: TextParser
+    processor: TextParser
 
 switched-vlan:
     _process: unnecessary
