@@ -1,0 +1,26 @@
+---
+metadata:
+    parser: TextParser
+
+switched-vlan:
+    _process: unnecessary
+    config:
+        _process: unnecessary
+        access-vlan:
+            _process:
+                mode: search
+                regexp: " switchport access vlan (?P<value>\\d+)"
+                from: "{{ bookmarks['parent'] }}"
+        interface-mode:
+            _process:
+                mode: map
+                regexp: " switchport mode (?P<value>\\S+)"
+                from: "{{ bookmarks['parent'] }}"
+                default: 'access'
+                map:
+                    trunk: TRUNK
+                    access: ACCESS
+        native-vlan:
+            _process: not_implemented
+        trunk-vlans:
+            _process: not_implemented
