@@ -1,0 +1,36 @@
+---
+metadata:
+    processor: TextParser
+    execute:
+        - method: cli
+          args:
+              commands: ["show running-config"]
+
+vlans:
+    _process: unnecessary
+    vlan:
+        _process:
+            mode: block
+            regexp: "(?P<block>^vlan (?P<key>\\d+)(.|\n)*?)^\\S"
+            from: "{{ bookmarks.vlans.0 }}"
+        vlan-id:
+            _process: unnecessary
+        config:
+            _process: unnecessary
+            vlan-id:
+                _process:
+                    mode: value
+                    value: "{{ vlan_key }}"
+            name:
+                _process:
+                    mode: search
+                    regexp: "^ name (?P<value>.*)"
+                    from: "{{ bookmarks.vlan[vlan_key] }}"
+            tpid:
+                _process: not_implemented
+            status:
+                _process: unnecessary
+        members:
+            _process: not_implemented
+            member:
+                _process: not_implemented
