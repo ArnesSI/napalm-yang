@@ -1,0 +1,38 @@
+---
+metadata:
+    processor: TextTranslator
+
+switched-vlan:
+    _process: not-implemented
+    config:
+        _process: not-implemented
+        access-vlan:
+            _process:
+                - mode: element
+                  value: " switchport access vlan {{ model }}\n"
+                  negate: " no switchport access vlan\n"
+        interface-mode:
+            _process:
+                - mode: element
+                  value: " switchport mode {{ model|lower }}\n"
+                  negate: " no switchport mode {{ model|lower }}\n"
+        native-vlan:
+            _process:
+                - mode: element
+                  value: " switchport trunk native vlan {{ model }}\n"
+                  negate: " no switchport trunk native vlan\n"
+        trunk-vlans:
+            _process:
+                - mode: element
+                  value: " switchport trunk allowed vlan {{ model|join(',') }}\n"
+                  negate: " no switchport trunk allowed vlan\n"
+    state:
+        _process: not-implemented
+        access-vlan:
+            _process: not-implemented
+        interface-mode:
+            _process: not-implemented
+        native-vlan:
+            _process: not-implemented
+        trunk-vlans:
+            _process: not-implemented
