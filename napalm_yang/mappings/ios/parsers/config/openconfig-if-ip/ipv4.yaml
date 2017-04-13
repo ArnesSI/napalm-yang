@@ -18,7 +18,7 @@ ipv4:
         address:
             _process:
                 mode: block
-                regexp: "(?P<block>ip address (?P<key>(?P<ip>.*)) (?P<prefix>([0-255]|\\.)*)(?P<secondary> secondary)*)$"
+                regexp: "(?P<block>ip address (?P<key>(?P<ip>[0-9\\.]+)) (?P<prefix>[0-9\\.]+)(?P<secondary> secondary)*)$"
                 from: "{{ bookmarks['parent'] }}"
             ip:
                 _process: unnecessary
