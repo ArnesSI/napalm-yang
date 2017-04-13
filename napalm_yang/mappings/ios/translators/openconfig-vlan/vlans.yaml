@@ -1,0 +1,32 @@
+---
+metadata:
+    processor: TextTranslator
+    root: true
+
+vlans:
+    _process: unnecessary
+    vlan:
+        _process:
+            mode: container
+            key_value: "vlan {{ vlan_key }}\n"
+            negate: "no vlan {{ vlan_key }}\n"
+            end: "!\n"
+        vlan-id:
+            _process: unnecessary
+        config:
+            _process: unnecessary
+            vlan-id:
+                _process: unnecessary
+            name:
+                _process:
+                    - mode: element
+                      value: " name {{ model }}\n"
+                      negate: " no name\n"
+            tpid:
+                _process: not_implemented
+            status:
+                _process: unnecessary
+        members:
+            _process: not_implemented
+            member:
+                _process: not_implemented
