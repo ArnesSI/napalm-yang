@@ -33,11 +33,14 @@ interfaces:
                     from: "{{ interface_key }}"
                     map:
                         GigabitEthernet: ethernetCsmacd
+                        TenGigabitEthernet: ethernetCsmacd
+                        FastEthernet: ethernetCsmacd
                         Management: ethernetCsmacd
                         Loopback: softwareLoopback
                         Port-Channel: ieee8023adLag
                         Port-channel: ieee8023adLag
                         Vlan: l3ipvlan
+                        Tunnel: tunnel
             enabled:
                 _process:
                     mode: is_present
