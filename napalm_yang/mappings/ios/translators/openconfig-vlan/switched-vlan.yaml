@@ -3,9 +3,9 @@ metadata:
     processor: TextTranslator
 
 switched-vlan:
-    _process: not-implemented
+    _process: not_implemented
     config:
-        _process: not-implemented
+        _process: not_implemented
         access-vlan:
             _process:
                 - mode: element
@@ -27,12 +27,12 @@ switched-vlan:
                   value: " switchport trunk allowed vlan {{ model|join(',') }}\n"
                   negate: " no switchport trunk allowed vlan\n"
     state:
-        _process: not-implemented
+        _process: not_implemented
         access-vlan:
-            _process: not-implemented
+            _process: not_implemented
         interface-mode:
-            _process: not-implemented
+            _process: not_implemented
         native-vlan:
-            _process: not-implemented
+            _process: not_implemented
         trunk-vlans:
-            _process: not-implemented
+            _process: not_implemented

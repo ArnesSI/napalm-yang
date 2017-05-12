@@ -29,13 +29,13 @@ ipv4:
                     _process:
                         mode: xpath
                         xpath: "name"
-                        regexp: "(?P<value>.*)/\\d+"
+                        regexp: "(?P<value>.*)\\/\\d+"
                         from: "{{ bookmarks['parent'] }}"
                 prefix-length:
                     _process:
                         mode: xpath
                         xpath: "name"
-                        regexp: ".*/(?P<value>\\d+)"
+                        regexp: ".*\\/(?P<value>\\d+)"
                         from: "{{ bookmarks['parent'] }}"
             vrrp:
                 _process: not_implemented

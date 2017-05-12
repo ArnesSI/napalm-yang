@@ -43,6 +43,8 @@ interfaces:
                         ge: ethernetCsmacd
                         lo: softwareLoopback
                         ae: ieee8023adLag
+                        vlan: l3ipvlan
+                        me: other
             enabled:
                 _process:
                     mode: is_absent
